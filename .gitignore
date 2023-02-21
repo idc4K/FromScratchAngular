@@ -1,3 +1,2 @@
-/node_modules
-/backend/settings.py
+/backend/backend/settings.py
 docker-compose.yml
