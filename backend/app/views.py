@@ -54,7 +54,7 @@ class CreateGenre(CreateAPIView):
 @csrf_exempt
 # @permission_classes([IsAuthenticated,autorisation])	
 def ViewallMovie(request):
-	serializer_class = Datas
+	serializer_class = DatasView
 	donnee = Data.objects.all()
 	
 	
