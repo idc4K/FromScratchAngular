@@ -35,19 +35,7 @@ class CreateGenre(CreateAPIView):
     def get_queryset(self):
         return self.queryset.filter()
     
-#@api_view(['POST'])
-#@csrf_exempt
-#def createMovie(request):
-    #data = request.data
-    #name = data["name"]
-    #serializer = Datas(data=data)
-        
-    #if Data.objects.filter(intitule=name).exists():
-        #return Response("Ce film existe déjà")
-    
-    #elif serializer.is_valid():
-        #serializer.save()#
-    #return Response(serializer.data,status=status.HTTP_201_CREATED)
+
 
   
 @api_view(['GET'])

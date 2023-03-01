@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { APIResponse, Movie } from '../model';
+import { Movie } from '../model';
 
 import { environment as env } from 'src/environments/environments';
 
@@ -12,13 +12,13 @@ export class ServiceService {
 
   constructor(private http : HttpClient) { }
 
-  getAllData(ordering : string, search?:string) : Observable<APIResponse<Movie>> {
+  getAllData(ordering : string, search?:string) : Observable<Movie[]> {
     let params = new HttpParams().set('ordering',ordering)
 
     if(search){
       params = new HttpParams().set('ordering',ordering).set('search', search)
     }
-    return this.http.get<APIResponse<Movie>>(`${env.BASE_URL}/viewAllMovie`,{
+    return this.http.get<Movie[]>(`${env.BASE_URL}/viewAllMovie`,{
       params : params
     });
   }

@@ -1,10 +1,14 @@
-export interface Movie{
-    name : string,
-    desc : string,
-    image : string,
-    genre_movie : string
-}
+export interface Movie {
+    name : string;
+    desc : string;
+    image : string;
+    genre_movie : Array<Genre>
+};
 
-export interface APIResponse<T>{
-    results : Array<T>
+
+interface Genre{
+    name : string
 }
+export interface test{
+    name : string
+  }
