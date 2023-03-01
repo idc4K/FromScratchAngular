@@ -8,7 +8,12 @@ class GenreData(serializers.ModelSerializer):
         fields = ['id','name_genre']
     
 class Datas(serializers.ModelSerializer):
-    
+    class Meta:
+        model = Data
+        fields = ['id','name','desc','image','genre_movie']
+        
+class updateDatas(serializers.ModelSerializer):
+    genre_movie = GenreData(read_only=True)
     class Meta:
         model = Data
         fields = ['id','name','desc','image','genre_movie']

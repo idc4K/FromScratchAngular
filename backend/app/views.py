@@ -54,7 +54,7 @@ def ViewallMovie(request):
 @csrf_exempt
 # @permission_classes([IsAuthenticated,autorisation])	
 def updateMovie(request,pk):
-    serializer_class = Datas
+    serializer_class = updateDatas
     donnee = Data.objects.get(id=pk)
     donnee.updated_at = timezone.now()
     serializer = serializer_class(donnee, data=request.data)
@@ -65,6 +65,7 @@ def updateMovie(request,pk):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
+@csrf_exempt
 def DeleteMovie(request, pk):
     serializers = Datas
     donnee = Data.objects.get(id=pk)
