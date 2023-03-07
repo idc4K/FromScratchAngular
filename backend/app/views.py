@@ -50,6 +50,17 @@ def ViewallMovie(request):
 	serializer = serializer_class(donnee,many=True)
 	return Response(serializer.data)
 
+@api_view(['GET'])
+@csrf_exempt
+# @permission_classes([IsAuthenticated,autorisation])	
+def ViewallGenre(request):
+	serializer_class = Genres
+	donnee = genre.objects.all()
+	
+	
+	serializer = serializer_class(donnee,many=True)
+	return Response(serializer.data)
+
 @api_view(['PATCH'])
 @csrf_exempt
 # @permission_classes([IsAuthenticated,autorisation])	
