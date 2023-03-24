@@ -34,6 +34,9 @@
     margin: 20px auto;
 
 }
+.game-thumb-container img{
+    width: 101%;
+}
 
 .game{
     width: 280px;
@@ -65,20 +68,20 @@
         height: 172px;
     }
     &-description{
-        padding: 20px;
+        padding: 24px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 100px;
+        height: 102px;
     }
     &-name{
-        color: #fff;
+        color: red;
         font-weight: 700;
-        font-size: 22px;
-        margin-bottom: 20px;
+        font-size: 20px;
+        margin-bottom: 24px;
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden;
+        // overflow: hidden;
     }
     &-platforms{
         display: flex;

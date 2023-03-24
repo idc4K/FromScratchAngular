@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Movie } from 'src/app/model';
 import { ServiceService } from 'src/app/services/service.service';
-
+import { APIresponse } from 'src/app/model';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,8 @@ import { ServiceService } from 'src/app/services/service.service';
 
 export class HomeComponent implements OnInit{
   public sort ! : string;
-  public movie  ! : Movie[]
+  public movies  : any
+  public tri ! : Array<Movie>
 
   constructor(private service : ServiceService, private route:ActivatedRoute){}
   ngOnInit(): void {
@@ -27,17 +28,24 @@ export class HomeComponent implements OnInit{
         else{
           this.searchMovie('name')
         }
-        return 
-      })
+        
+      });
 
-      
+      this.getAll()
+  }
+
+  getAll(){
+    this.service.listMovie().subscribe(data =>{
+      this.movies = data
+      console.log(data)
+    })
   }
   searchMovie(sort:string,search ?:string):void{
-    this.service
+     this.service
       .getAllData(sort, search)
-      .subscribe((data) => {
-        this.movie = data
-        console.log(data)
+      .subscribe(data => {
+        this.tri = data.results
+         
       })
   }
 }

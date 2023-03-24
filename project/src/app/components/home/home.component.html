@@ -4,6 +4,7 @@
         <mat-select
          panelClass="sort-select"
          [(ngModel)]="sort"
+         (selectionChange)="searchMovie(sort)"
         >
         <mat-option value="name">Name</mat-option>
         <mat-option value="-released">Released</mat-option>
@@ -17,16 +18,30 @@
 
 </div>
 
-<div class="games">
-   <div class="game">
+<div class="games" >
+   <ng-container *ngFor="let m of movies">
+     <div class="game">
        <div class="game-thumb-container">
-          <img src="assets/GTA.jpg" alt="thumbail" class="game-thumbail">
+          <img 
+            *ngIf="m.image"
+            src="http://localhost:8000/{{m.image}}" 
+            alt="thumbail" 
+            class="game-thumbail">
+          <p *ngIf="!m.image">no image</p>
        </div>
        <div class="game-description">
-          <p class="game-name"></p>
+          <p class="game-name">{{m.name}}</p>
+          
        </div>
        <div class="game-platforms">
-          <img src="assets/ps.jpg" alt="" class="game-platform">
+          <img  
+            *ngIf="m.image"
+             src="http://localhost:8000/{{m.image}}" 
+             alt="" 
+             class="game-platform">
+             <p *ngIf="!m.image"><p>no image</p> 
        </div>
-   </div>
+     </div>
+  </ng-container>
 </div>
+

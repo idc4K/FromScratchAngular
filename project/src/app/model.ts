@@ -9,6 +9,10 @@ export interface Movie {
 interface Genre{
     name : string
 }
-export interface test{
-    name : string
-  }
+
+export interface APIresponse<T>{
+    results : Array<T>
+}
+// export interface test{
+//     name : string
+//   }
